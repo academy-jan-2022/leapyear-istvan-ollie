@@ -27,4 +27,12 @@ public class LeapYearShould {
         var result = leapYear.check(4);
         assertTrue(result);
     }
+
+    @Test
+    void
+    return_true_when_passed_12() {
+        var leapYear = new LeapYear();
+        var result = leapYear.check(12);
+        assertTrue(result);
+    }
 }
