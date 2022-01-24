@@ -48,4 +48,10 @@ public class LeapYearShould {
         assertFalse(result);
     }
 
+    @Test
+    void return_true_when_passed_400() {
+        var leapYear = new LeapYear();
+        var result = leapYear.check(400);
+        assertTrue(result);
+    }
 }
