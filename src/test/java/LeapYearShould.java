@@ -14,6 +14,13 @@ public class LeapYearShould {
     }
 
     @Test
+    void return_true_when_passed_8() {
+        var leapYear = new LeapYear();
+        var result = leapYear.check(8);
+        assertTrue(result);
+    }
+
+    @Test
     public void
     return_true_when_passed_4(){
         var leapYear = new LeapYear();
