@@ -1,8 +1,9 @@
 import LeapYear.example.LeapYear;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class LeapYearShould {
 
@@ -13,27 +14,17 @@ public class LeapYearShould {
         var result = leapYear.check(0);
         assertFalse(result);
     }
-    @Test
-    void return_true_when_passed_8() {
-        var leapYear = new LeapYear();
-        var result = leapYear.check(8);
-        assertTrue(result);
-    }
 
-    @Test
-    public void
-    return_true_when_passed_4(){
+    @ParameterizedTest
+    @CsvSource({"4, true",
+                "8, true",
+                "12, true"
+    })
+    void return_true_when_divisible_by_4(int input, boolean expectedOutput){
         var leapYear = new LeapYear();
-        var result = leapYear.check(4);
-        assertTrue(result);
-    }
+        var result = leapYear.check(input);
 
-    @Test
-    void
-    return_true_when_passed_12() {
-        var leapYear = new LeapYear();
-        var result = leapYear.check(12);
-        assertTrue(result);
+        assertEquals(expectedOutput, result);
     }
 
     @Test
